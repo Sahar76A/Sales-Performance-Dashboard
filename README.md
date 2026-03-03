@@ -176,8 +176,8 @@ All measures are reusable and scalable for multi-page dashboards.
 
 📸 Dashboard Preview
 
-![Executive Overview](images/dashboard-overview.png)
-![Data Model](images/model-view.png)
-![Regional Analysis](images/region-analysis.png)
+![](dashboard_images/dashboard1.png)
+![](dashboard_images/dashboard2.png)
+
 
 
