@@ -1,0 +1,59 @@
+/*
+---------------------------------------------------------
+Project: Sales Performance Dashboard
+Purpose:
+    Core KPI and analytical measures
+Author: Sahar Heidariasl
+---------------------------------------------------------
+*/
+
+-- Core KPIs
+
+Total Sales =
+SUM ( FactSales[Sales] )
+
+Total Quantity =
+SUM ( FactSales[Quantity] )
+
+Net Profit =
+SUM ( FactSales[Profit] )
+
+Profit Normalized =
+SUMX ( FactSales, ABS ( FactSales[Profit] ) )
+
+Profit Margin (Net) =
+DIVIDE ( [Net Profit], [Total Sales] )
+
+Profit Margin (Normalized) =
+DIVIDE ( [Profit Normalized], [Total Sales] )
+
+Total Orders =
+DISTINCTCOUNT ( FactSales[Order ID] )
+
+Total Customers =
+DISTINCTCOUNT ( FactSales[Customer ID] )
+
+Average Order Value =
+DIVIDE ( [Total Sales], [Total Orders] )
+
+-- Time Intelligence
+
+Sales LY =
+CALCULATE ( [Total Sales], SAMEPERIODLASTYEAR ( DimDate[Date] ) )
+
+Sales YoY =
+[Total Sales] - [Sales LY]
+
+Sales YoY % =
+DIVIDE ( [Sales YoY], [Sales LY] )
+
+-- Ranking
+
+Top Region by Sales =
+VAR t =
+    ADDCOLUMNS (
+        VALUES ( FactSales[Region] ),
+        "Sales", [Total Sales]
+    )
+RETURN
+    CONCATENATEX ( TOPN ( 1, t, [Sales], DESC ), FactSales[Region], ", " )
