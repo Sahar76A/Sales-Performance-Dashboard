@@ -1,1 +1,12 @@
+# OS
+.DS_Store
+Thumbs.db
 
+# Power BI temp / backup files
+*.tmp
+*.bak
+*.pbix~
+*.pbit~
+
+# (Optional) If you don't want to upload raw data, uncomment:
+# data/*.csv
