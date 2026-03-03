@@ -176,8 +176,9 @@ All measures are reusable and scalable for multi-page dashboards.
 
 📸 Dashboard Preview
 
-![](dashboard images/dashboard1.png)
-![](dashboard images/dashboard2.png)
+![](dashboard_images/dashboard1.png)
+
+![](dashboard_images/dashboard2.png)
 
 
 
